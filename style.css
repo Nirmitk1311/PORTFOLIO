@@ -494,129 +494,64 @@ body {
 }
 
 /* Decorative Background Graphics */
-.bg-graphics {
+#ai-network-bg {
     position: fixed;
-    top: 0; left: 0; width: 100vw; height: 100vh;
-    pointer-events: none;
-    z-index: 0;
-    overflow: hidden;
-}
-.blob {
-    position: absolute;
-    width: 600px;
-    height: 600px;
-    filter: blur(2px);
-    z-index: 1;
-}
-.blob1 {
-    top: -180px;
-    left: -180px;
-    transform: rotate(-15deg);
-}
-.blob2 {
-    bottom: -200px;
-    right: -200px;
-    transform: rotate(20deg);
-}
-.glow {
-    position: absolute;
-    border-radius: 50%;
-    filter: blur(80px);
-    opacity: 0.18;
-    z-index: 1;
-}
-.glow1 {
-    width: 400px;
-    height: 400px;
-    background: #00a8ff;
-    top: 60vh;
-    left: -120px;
-}
-.glow2 {
-    width: 300px;
-    height: 300px;
-    background: #fbc531;
-    bottom: 10vh;
-    right: 0;
-}
-/* Ensure main content is above background graphics */
-body > *:not(.bg-graphics) {
-    position: relative;
-    z-index: 2;
-}
-
-.animated-blob {
-    position: fixed;
-    top: -200px;
-    left: -200px;
-    width: 900px;
-    height: 900px;
-    z-index: 0;
-    pointer-events: none;
-    filter: blur(1px);
-    animation: blob-move 18s ease-in-out infinite alternate;
-}
-.blob-path {
-    transform-origin: 50% 50%;
-    animation: blob-morph 12s ease-in-out infinite alternate;
-}
-@keyframes blob-move {
-    0% { transform: scale(1) rotate(0deg); }
-    50% { transform: scale(1.08) rotate(8deg); }
-    100% { transform: scale(0.96) rotate(-6deg); }
-}
-@keyframes blob-morph {
-    0% {
-        d: path('M120,-170C154,-144,176,-103,181,-62C186,-21,174,20,154,54C134,88,106,115,71,137C36,159,-7,176,-48,170C-89,164,-128,135,-154,99C-180,63,-193,21,-191,-22C-189,-65,-172,-109,-140,-137C-108,-165,-62,-177,-18,-172C26,-167,52,-146,120,-170Z');
-    }
-    50% {
-        d: path('M140,-160C170,-120,180,-80,170,-40C160,0,130,40,100,80C70,120,40,160,0,180C-40,200,-80,180,-120,160C-160,140,-200,120,-200,80C-200,40,-160,0,-140,-40C-120,-80,-100,-120,-60,-140C-20,-160,20,-180,60,-180C100,-180,140,-160,140,-160Z');
-    }
-    100% {
-        d: path('M120,-170C154,-144,176,-103,181,-62C186,-21,174,20,154,54C134,88,106,115,71,137C36,159,-7,176,-48,170C-89,164,-128,135,-154,99C-180,63,-193,21,-191,-22C-189,-65,-172,-109,-140,-137C-108,-165,-62,-177,-18,-172C26,-167,52,-146,120,-170Z');
-    }
-}
-
-.network-bg {
-    position: fixed;
-    top: 0;
-    left: 0;
+    top: 0; left: 0;
     width: 100vw;
     height: 100vh;
     z-index: 0;
     pointer-events: none;
-    opacity: 0.22;
+    background: #181a20;
 }
+body > *:not(#ai-network-bg) {
+    position: relative;
+    z-index: 1;
+}
+
+.network-bg {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0; left: 0;
+    opacity: 0.18;
+}
+
 .network-lines line {
     stroke: #00a8ff;
-    stroke-width: 2.5;
+    stroke-width: 3;
     opacity: 0.5;
-    stroke-dasharray: 400;
-    stroke-dashoffset: 400;
-    animation: line-draw 2.5s ease-in-out forwards;
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+    animation: line-draw 2s forwards;
 }
+
 .network-lines line:nth-child(2) { animation-delay: 0.5s; }
 .network-lines line:nth-child(3) { animation-delay: 1s; }
 .network-lines line:nth-child(4) { animation-delay: 1.5s; }
 .network-lines line:nth-child(5) { animation-delay: 2s; }
+
 @keyframes line-draw {
-    to { stroke-dashoffset: 0; }
+    to {
+        stroke-dashoffset: 0;
+    }
 }
+
 .network-nodes .node {
-    fill: #fbc531;
-    opacity: 0.8;
+    fill: #00a8ff;
+    opacity: 0.7;
     filter: blur(0.5px);
     animation: node-pulse 2.5s infinite alternate;
 }
+
 .network-nodes .node1 { animation-delay: 0s; }
 .network-nodes .node2 { animation-delay: 0.5s; }
 .network-nodes .node3 { animation-delay: 1s; }
 .network-nodes .node4 { animation-delay: 1.5s; }
-.network-nodes .node5 { animation-delay: 2s; }
+
 @keyframes node-pulse {
-    0% { r: 10; opacity: 0.7; }
-    50% { r: 16; opacity: 1; }
-    100% { r: 10; opacity: 0.7; }
+    0% { opacity: 0.7; r: 18; }
+    50% { opacity: 1; r: 24; }
+    100% { opacity: 0.7; r: 18; }
 }
 
 .section h2, .hero h1, .hero h2, .project-item h3 {

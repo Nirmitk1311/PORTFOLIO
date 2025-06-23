@@ -9,13 +9,7 @@
 </head>
 <body>
     <!-- Decorative Background Graphics -->
-    <div class="bg-graphics">
-        <svg class="animated-blob" viewBox="0 0 600 600">
-            <g transform="translate(300,300)">
-                <path class="blob-path" d="M120,-170C154,-144,176,-103,181,-62C186,-21,174,20,154,54C134,88,106,115,71,137C36,159,-7,176,-48,170C-89,164,-128,135,-154,99C-180,63,-193,21,-191,-22C-189,-65,-172,-109,-140,-137C-108,-165,-62,-177,-18,-172C26,-167,52,-146,120,-170Z" fill="#00a8ff" fill-opacity="0.18"/>
-            </g>
-        </svg>
-    </div>
+    <canvas id="ai-network-bg"></canvas>
     <nav class="navbar">
         <div class="nav-container">
             <div class="logo">Nirmit Kishor Kasodariya</div>
@@ -157,6 +151,89 @@
         observer.observe(section);
       });
     });
+    </script>
+    <script>
+    const canvas = document.getElementById('ai-network-bg');
+    const ctx = canvas.getContext('2d');
+    let width = window.innerWidth;
+    let height = window.innerHeight;
+    canvas.width = width;
+    canvas.height = height;
+
+    function resizeCanvas() {
+        width = window.innerWidth;
+        height = window.innerHeight;
+        canvas.width = width;
+        canvas.height = height;
+    }
+    window.addEventListener('resize', resizeCanvas);
+
+    const NODES = 18;
+    const nodes = [];
+    for (let i = 0; i < NODES; i++) {
+        nodes.push({
+            x: Math.random() * width,
+            y: Math.random() * height,
+            vx: (Math.random() - 0.5) * 0.7,
+            vy: (Math.random() - 0.5) * 0.7,
+            r: 8 + Math.random() * 8
+        });
+    }
+
+    function draw() {
+        ctx.clearRect(0, 0, width, height);
+
+        // Draw lines between close nodes
+        for (let i = 0; i < NODES; i++) {
+            for (let j = i + 1; j < NODES; j++) {
+                const dx = nodes[i].x - nodes[j].x;
+                const dy = nodes[i].y - nodes[j].y;
+                const dist = Math.sqrt(dx * dx + dy * dy);
+                if (dist < 180) {
+                    ctx.save();
+                    ctx.globalAlpha = 0.18;
+                    ctx.strokeStyle = '#00a8ff';
+                    ctx.lineWidth = 2;
+                    ctx.beginPath();
+                    ctx.moveTo(nodes[i].x, nodes[i].y);
+                    ctx.lineTo(nodes[j].x, nodes[j].y);
+                    ctx.stroke();
+                    ctx.restore();
+                }
+            }
+        }
+
+        // Draw nodes
+        for (let i = 0; i < NODES; i++) {
+            ctx.save();
+            ctx.beginPath();
+            ctx.arc(nodes[i].x, nodes[i].y, nodes[i].r, 0, 2 * Math.PI);
+            ctx.fillStyle = '#00a8ff';
+            ctx.globalAlpha = 0.35 + 0.25 * Math.sin(Date.now() / 600 + i);
+            ctx.shadowColor = '#00a8ff';
+            ctx.shadowBlur = 16;
+            ctx.fill();
+            ctx.restore();
+        }
+    }
+
+    function update() {
+        for (let i = 0; i < NODES; i++) {
+            nodes[i].x += nodes[i].vx;
+            nodes[i].y += nodes[i].vy;
+
+            // Bounce off edges
+            if (nodes[i].x < 0 || nodes[i].x > width) nodes[i].vx *= -1;
+            if (nodes[i].y < 0 || nodes[i].y > height) nodes[i].vy *= -1;
+        }
+    }
+
+    function animate() {
+        update();
+        draw();
+        requestAnimationFrame(animate);
+    }
+    animate();
     </script>
 </body>
 </html> 
