@@ -690,4 +690,12 @@ body > *:not(#ai-network-bg) {
     font-size: 1.25rem;
     scroll-margin-top: 80px;
     scroll-margin-bottom: 10vh;
+}
+
+.hero-btns {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    align-items: center;
+    margin-top: 0.5rem;
 } 
