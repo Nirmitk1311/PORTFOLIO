@@ -16,7 +16,7 @@
     <nav class="navbar">
         <div class="nav-container">
             <div class="logo">Nirmit Kishor Kasodariya</div>
-            <div class="hamburger" id="hamburger-menu">
+            <div class="hamburger" id="hamburger-menu" aria-label="Toggle navigation" tabindex="0">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -250,9 +250,22 @@
     // Hamburger menu toggle
     const hamburger = document.getElementById('hamburger-menu');
     const navLinks = document.querySelector('.nav-links');
-    hamburger.addEventListener('click', function() {
+    const navLinkItems = document.querySelectorAll('.nav-links a');
+    function toggleMenu() {
       navLinks.classList.toggle('open');
-      this.classList.toggle('active');
+      hamburger.classList.toggle('active');
+    }
+    hamburger.addEventListener('click', toggleMenu);
+    hamburger.addEventListener('keypress', function(e) {
+      if (e.key === 'Enter' || e.key === ' ') toggleMenu();
+    });
+    navLinkItems.forEach(link => {
+      link.addEventListener('click', () => {
+        if (navLinks.classList.contains('open')) {
+          navLinks.classList.remove('open');
+          hamburger.classList.remove('active');
+        }
+      });
     });
     </script>
 </body>
