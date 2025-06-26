@@ -247,34 +247,36 @@
     animate();
     </script>
     <script>
-    // Hamburger menu toggle
-    const hamburger = document.getElementById('hamburger-menu');
-    const navLinks = document.querySelector('.nav-links');
-    const navLinkItems = document.querySelectorAll('.nav-links a');
-    function closeMenu() {
-      navLinks.classList.remove('open');
-      hamburger.classList.remove('active');
-      console.log('Hamburger closed');
-    }
-    function toggleMenu() {
-      if (navLinks.classList.contains('open')) {
-        closeMenu();
-      } else {
-        navLinks.classList.add('open');
-        hamburger.classList.add('active');
+    document.addEventListener('DOMContentLoaded', function() {
+      const hamburger = document.getElementById('hamburger-menu');
+      const navLinks = document.querySelector('.nav-links');
+      const navLinkItems = document.querySelectorAll('.nav-links a');
+      function closeMenu() {
+        navLinks.classList.remove('open');
+        hamburger.classList.remove('active');
+        console.log('Hamburger closed');
       }
-    }
-    hamburger.addEventListener('click', toggleMenu);
-    hamburger.addEventListener('keypress', function(e) {
-      if (e.key === 'Enter' || e.key === ' ') toggleMenu();
-    });
-    navLinkItems.forEach(link => {
-      link.addEventListener('click', closeMenu);
-    });
-    window.addEventListener('resize', function() {
-      if (window.innerWidth > 900) {
-        closeMenu();
+      function toggleMenu() {
+        console.log('Hamburger clicked');
+        if (navLinks.classList.contains('open')) {
+          closeMenu();
+        } else {
+          navLinks.classList.add('open');
+          hamburger.classList.add('active');
+        }
       }
+      hamburger.addEventListener('click', toggleMenu);
+      hamburger.addEventListener('keypress', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') toggleMenu();
+      });
+      navLinkItems.forEach(link => {
+        link.addEventListener('click', closeMenu);
+      });
+      window.addEventListener('resize', function() {
+        if (window.innerWidth > 900) {
+          closeMenu();
+        }
+      });
     });
     </script>
 </body>
