@@ -76,6 +76,17 @@ h1, h2, h3, h4, h5, h6, .logo {
     .hamburger {
         display: flex;
     }
+    .navbar {
+        position: sticky !important;
+        top: 0 !important;
+        z-index: 9999 !important;
+    }
+    .nav-links {
+        z-index: 9999 !important;
+    }
+    .nav-links.open {
+        z-index: 9999 !important;
+    }
 }
 
 /* Hero section improvements */
