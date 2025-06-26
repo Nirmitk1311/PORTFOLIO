@@ -254,10 +254,15 @@
     function closeMenu() {
       navLinks.classList.remove('open');
       hamburger.classList.remove('active');
+      console.log('Hamburger closed');
     }
     function toggleMenu() {
-      navLinks.classList.toggle('open');
-      hamburger.classList.toggle('active');
+      if (navLinks.classList.contains('open')) {
+        closeMenu();
+      } else {
+        navLinks.classList.add('open');
+        hamburger.classList.add('active');
+      }
     }
     hamburger.addEventListener('click', toggleMenu);
     hamburger.addEventListener('keypress', function(e) {
