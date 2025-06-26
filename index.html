@@ -251,6 +251,10 @@
     const hamburger = document.getElementById('hamburger-menu');
     const navLinks = document.querySelector('.nav-links');
     const navLinkItems = document.querySelectorAll('.nav-links a');
+    function closeMenu() {
+      navLinks.classList.remove('open');
+      hamburger.classList.remove('active');
+    }
     function toggleMenu() {
       navLinks.classList.toggle('open');
       hamburger.classList.toggle('active');
@@ -260,12 +264,12 @@
       if (e.key === 'Enter' || e.key === ' ') toggleMenu();
     });
     navLinkItems.forEach(link => {
-      link.addEventListener('click', () => {
-        if (navLinks.classList.contains('open')) {
-          navLinks.classList.remove('open');
-          hamburger.classList.remove('active');
-        }
-      });
+      link.addEventListener('click', closeMenu);
+    });
+    window.addEventListener('resize', function() {
+      if (window.innerWidth > 900) {
+        closeMenu();
+      }
     });
     </script>
 </body>
