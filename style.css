@@ -200,19 +200,19 @@ h1, h2, h3, h4, h5, h6, .logo {
         padding-top: 180px !important;
     }
     .profile-photo {
-        width: min(100px, 70vw);
-        height: min(100px, 70vw);
-        max-width: 100vw;
-        max-height: 100vw;
+        width: min(120px, 80vw);
+        height: min(120px, 80vw);
+        max-width: 90vw;
+        max-height: 90vw;
         display: block;
-        margin: 0 auto 1.2rem auto;
+        margin: 0 auto 0.6rem auto;
     }
     .about-flex {
         display: flex;
         flex-direction: column;
         align-items: center;
         overflow: visible;
-        padding: 1.2rem 0.5rem;
+        padding: 0.7rem 0.5rem 0.7rem 0.5rem;
     }
 }
 
@@ -267,7 +267,7 @@ h1, h2, h3, h4, h5, h6, .logo {
     background: rgba(35,38,58,0.60);
     border-radius: 16px;
     box-shadow: 0 2px 16px rgba(0,168,255,0.08);
-    padding: 2rem 1.5rem;
+    padding: 1.2rem 1.5rem 1.2rem 1.5rem;
 }
 
 /* Skills grid: 6x4 layout on desktop, responsive on mobile */
@@ -938,10 +938,10 @@ html {
 
 /* Responsive profile photo sizing */
 .profile-photo {
-    width: 100px;
-    height: 100px;
-    max-width: 32vw;
-    max-height: 32vw;
+    width: 200px;
+    height: 200px;
+    max-width: 48vw;
+    max-height: 48vw;
     object-fit: cover;
     object-position: center;
     border-radius: 50%;
@@ -952,27 +952,27 @@ html {
 }
 @media (max-width: 900px) {
     .profile-photo {
-        width: 140px;
-        height: 140px;
-        max-width: 36vw;
-        max-height: 36vw;
+        width: 160px;
+        height: 160px;
+        max-width: 40vw;
+        max-height: 40vw;
     }
 }
 @media (max-width: 600px) {
     .profile-photo {
-        width: min(100px, 70vw);
-        height: min(100px, 70vw);
-        max-width: 100vw;
-        max-height: 100vw;
+        width: min(120px, 80vw);
+        height: min(120px, 80vw);
+        max-width: 90vw;
+        max-height: 90vw;
         display: block;
-        margin: 0 auto 1.2rem auto;
+        margin: 0 auto 0.6rem auto;
     }
     .about-flex {
         display: flex;
         flex-direction: column;
         align-items: center;
         overflow: visible;
-        padding: 1.2rem 0.5rem;
+        padding: 0.7rem 0.5rem 0.7rem 0.5rem;
     }
 }
 
