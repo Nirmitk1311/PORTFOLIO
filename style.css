@@ -999,3 +999,125 @@ html {
         margin: 0 auto;
     }
 } 
+
+/* Project Images - All same size as Iris Flower project */
+.project-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    margin-bottom: 2rem;
+    border-radius: 12px;
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 24px rgba(0, 168, 255, 0.2);
+}
+
+.project-image:hover {
+    transform: scale(1.02);
+    box-shadow: 0 12px 32px rgba(0, 168, 255, 0.3);
+}
+
+.project-item {
+    background: rgba(35, 38, 58, 0.6);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    padding: 2.5rem;
+    margin-bottom: 2rem;
+    transition: all 0.3s ease;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.project-item:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3);
+    border-color: rgba(0, 168, 255, 0.3);
+}
+
+.project-item h3 {
+    color: #00a8ff;
+    margin: 1.5rem 0 1rem 0;
+    font-size: 1.5rem;
+}
+
+.project-item p {
+    color: #b8c5d6;
+    line-height: 1.6;
+    margin-bottom: 1.8rem;
+    text-align: justify;
+    max-width: 550px;
+    font-size: 1rem;
+}
+
+.project-item a {
+    color: #00a8ff;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 0.85rem 1.8rem;
+    border: 2px solid #00a8ff;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    background: rgba(0, 168, 255, 0.1);
+    font-size: 1rem;
+}
+
+.project-item a:hover {
+    background: #00a8ff;
+    color: #181a20;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 168, 255, 0.3);
+}
+
+/* Responsive adjustments for project images */
+@media (max-width: 900px) {
+    .project-image {
+        width: 100%;
+        height: 180px;
+        padding: 1.2rem;
+    }
+    
+    .project-item {
+        padding: 2rem;
+    }
+    
+    .project-item h3 {
+        font-size: 1.3rem;
+    }
+    
+    .project-item p {
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .project-image {
+        width: 100%;
+        height: 160px;
+        padding: 1rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .project-item {
+        padding: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .project-item h3 {
+        font-size: 1.2rem;
+        margin: 1.2rem 0 0.8rem 0;
+    }
+    
+    .project-item p {
+        font-size: 0.9rem;
+        line-height: 1.5;
+        margin-bottom: 1.5rem;
+    }
+    
+    .project-item a {
+        padding: 0.7rem 1.4rem;
+        font-size: 0.9rem;
+    }
+} 
